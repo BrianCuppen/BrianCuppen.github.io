@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HowTail</title>
+    <link rel="icon" type="image/x-icon" href="IMG/favicon.ico">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/screen.css">
+</head>
+
+<body>
+
+    <div class="c-app">
+        <div class="c-app__logo">
+            <h1 class="c-logo"> HowTail</h1>
+        </div>
+        <div class="c-app__topbar">
+            <div class="c-topbar">
+                <form class="c-search">
+                    <input type="text" class="c-search__input" placeholder="Search for cocktail">
+                    <button class="o-button-reset c-search__button">
+                        <svg class="c-search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
+                            height="24px">
+                            <path
+                                d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 19.585938 21.585938 C 20.137937 22.137937 21.033938 22.137938 21.585938 21.585938 C 22.137938 21.033938 22.137938 20.137938 21.585938 19.585938 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="c-app__sidebar disableScroll">
+            <nav class="c-main-nav">
+                <ul class="o-list c-main-nav__list js-categories"></ul>
+            </nav>
+        </div>
+        <div class="c-app__main">
+            <div class="o-row js-Cocktails container y mandatory-scroll-snapping" dir="ltr">
+                <div class="o-container__header">
+                    <h2> Recommended cocktails </h2>
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+    <!-- onderaan de pagina -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="script/app.js"></script>
+
+</body>
+
+</html>
