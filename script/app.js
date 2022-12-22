@@ -208,6 +208,6 @@ const listenToButton = function () {
 document.addEventListener('DOMContentLoaded', function () {
     console.log("DOM loaded");
     //test url
-    getUrlData();S
+    getUrlData();
     getCategoryData();
 });
