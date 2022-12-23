@@ -155,7 +155,7 @@ const getListData = function (drinks) {
 }
 const getUrlData = function () {
     //make url
-    let Url2 = "http://thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+    let Url2 = "https://thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
     fetch(Url2) // Call the fetch function passing the url of the API as a parameter
         .then((response) => response.json())
         .then((drinks) => {
@@ -172,7 +172,7 @@ const getUrlData = function () {
 
 const getCategoryData = function () {
     //make url
-    let Url = "http://thecocktaildb.com/api/json/v1/1/list.php?c=list"
+    let Url = "https://thecocktaildb.com/api/json/v1/1/list.php?c=list"
     fetch(Url) // Call the fetch function passing the url of the API as a parameter
         .then((response) => response.json())
         .then((categories) => {
