@@ -1,56 +1,723 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HowTail</title>
-    <link rel="icon" type="image/x-icon" href="IMG/favicon.ico">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/screen.css">
-</head>
+    <link rel="icon" type="image/x-icon" href="IMG/favicon.ico" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/screen.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="c-app">
-        <div class="c-app__logo">
-            <h1 class="c-logo"> HowTail</h1>
-        </div>
-        <div class="c-app__topbar">
-            <div class="c-topbar">
-                <form class="c-search">
-                    <input type="text" class="c-search__input" placeholder="Search for cocktail">
-                    <button class="o-button-reset c-search__button">
-                        <svg class="c-search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"
-                            height="24px">
-                            <path
-                                d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 19.585938 21.585938 C 20.137937 22.137937 21.033938 22.137938 21.585938 21.585938 C 22.137938 21.033938 22.137938 20.137938 21.585938 19.585938 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z" />
-                        </svg>
-                    </button>
-                </form>
+      <div class="c-app__logo">
+        <h1 class="c-logo js-Title">HowTail</h1>
+      </div>
+      <div class="c-app__topbar">
+        <div class="c-topbar">
+          <form class="c-search">
+            <input
+              type="text"
+              class="c-search__input js-searchInput"
+              placeholder="Search for cocktail"
+            />
+            <button class="o-button-reset c-search__button js-search">
+              <svg
+                class="c-search__icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24px"
+                height="24px"
+              >
+                <path
+                  d="M 9 2 C 5.1458514 2 2 5.1458514 2 9 C 2 12.854149 5.1458514 16 9 16 C 10.747998 16 12.345009 15.348024 13.574219 14.28125 L 14 14.707031 L 14 16 L 19.585938 21.585938 C 20.137937 22.137937 21.033938 22.137938 21.585938 21.585938 C 22.137938 21.033938 22.137938 20.137938 21.585938 19.585938 L 16 14 L 14.707031 14 L 14.28125 13.574219 C 15.348024 12.345009 16 10.747998 16 9 C 16 5.1458514 12.854149 2 9 2 z M 9 4 C 11.773268 4 14 6.2267316 14 9 C 14 11.773268 11.773268 14 9 14 C 6.2267316 14 4 11.773268 4 9 C 4 6.2267316 6.2267316 4 9 4 z"
+                />
+              </svg>
+            </button>
+          </form>
+          <div class="c-topbar-button__wrapper">
+            <div class="c-topbar__button js-IngredientList">
+              <a class="c-topbar__link" href="#"> Ingredients </a>
             </div>
+            <div class="c-topbar__button js-Data">
+              <a class="c-topbar__link" href="#"> Data </a>
+            </div>
+            <div class="c-topbar__switch">
+              <input
+                class="o-hide-accessible c-option c-option--hidden js-switch"
+                type="checkbox"
+                id="toggle1"
+              />
+              <label
+                class="c-label c-label--option c-custom-toggle"
+                for="toggle1"
+              >
+                <span class="c-custom-toggle__fake-input"> </span>
+              </label>
+              <p class="c-option__text js-switch__text">Non-Alcoholic</p>
+            </div>
+          </div>
         </div>
-        <div class="c-app__sidebar disableScroll">
-            <nav class="c-main-nav">
-                <ul class="o-list c-main-nav__list js-categories"></ul>
-            </nav>
-        </div>
-        <div class="c-app__main">
-            <div class="o-row js-Cocktails container y mandatory-scroll-snapping" dir="ltr">
-                <div class="o-container__header">
-                    <h2> Recommended cocktails </h2>
+      </div>
+      <div class="c-app__sidebar disableScroll">
+        <nav class="c-main-nav">
+          <ul class="o-list c-main-nav__list js-categories"></ul>
+        </nav>
+      </div>
+      <div class="c-app__main">
+        <div class="o-row js-Cocktails y mandatory-scroll-snapping" dir="ltr">
+          <div class="o-container mandatory-scroll-snapping">
+            <div class="o-container__header">
+              <h2 class="js-title">Recommended Cocktails</h2>
+            </div>
+            <div class="c-dashboard js-dashboard">
+              <div class="c-dashboard__item u-x-span-4-bp3 js-cocktails">
+                <div class="c-card">
+                  <div class="c-card__body">
+                    <p class="js-DrinkName"><strong>155 Belmont</strong></p>
+                    <img
+                      src="https://www.thecocktaildb.com/images/media/drink/yqvvqs1475667388.jpg/preview"
+                      alt="image of cocktail"
+                    />
+                    <div class="c-card__body__wrapper">
+                      <p class="js-glassType">
+                        <strong>Glass type: </strong>White wine glass
+                      </p>
+                      <ul class="c-card__body__list">
+                        <strong>Ingredients</strong>
+                        <li>Dark rum - 1 shot</li>
+                        <li>Light rum - 2 shots</li>
+                        <li>Vodka - 1 shot</li>
+                        <li>Orange juice - 1 shot</li>
+                      </ul>
+                      <div class="js-Instructions">
+                        <p><strong>Instructions</strong></p>
+                        <p>
+                          Blend with ice. Serve in a wine glass. Garnish with
+                          carrot.
+                        </p>
 
+                        <div class="c-like">
+                          <input
+                            class="o-hide-accessible c-like__input"
+                            type="checkbox"
+                            id="15346"
+                          />
+                          <label
+                            class="c-label c-like__label js-like"
+                            id="15346"
+                            for="15346"
+                          >
+                            <svg
+                              class="c-like__symbol"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1"
+                              id="Capa_1"
+                              x="0px"
+                              y="0px"
+                              viewBox="0 0 510 510"
+                              style="enable-background: new 0 0 510 510"
+                              xml:space="preserve"
+                            >
+                              <path
+                                d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"
+                              ></path>
+                            </svg>
+                          </label>
+                          <p class="js-saved" id="15346">
+                            press the heart to save this drink
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div class="c-dashboard__item u-x-span-4-bp3 js-cocktails">
+                <div class="c-card">
+                  <div class="c-card__body">
+                    <p class="js-DrinkName"><strong>747 Drink</strong></p>
+                    <img
+                      src="https://www.thecocktaildb.com/images/media/drink/i9suxb1582474926.jpg/preview"
+                      alt="image of cocktail"
+                    />
+                    <div class="c-card__body__wrapper">
+                      <p class="js-glassType">
+                        <strong>Glass type: </strong>Highball glass
+                      </p>
+                      <ul class="c-card__body__list">
+                        <strong>Ingredients</strong>
+                        <li>Vodka - 1 oz</li>
+                        <li>Roses sweetened lime juice - 1 oz</li>
+                        <li>Cranberry Juice - 1 oz</li>
+                        <li>Sprite - Top</li>
+                      </ul>
+                      <div class="js-Instructions">
+                        <p><strong>Instructions</strong></p>
+                        <p>
+                          Fill a Collins glass with ice. Pour in vodka, lime
+                          cordial, and cranberry juice. Fill up with Sprite.
+                          Garnish with a Lime wheel or some cranberries
+                        </p>
+
+                        <div class="c-like">
+                          <input
+                            class="o-hide-accessible c-like__input"
+                            type="checkbox"
+                            id="178318"
+                          />
+                          <label
+                            class="c-label c-like__label js-like"
+                            id="178318"
+                            for="178318"
+                          >
+                            <svg
+                              class="c-like__symbol"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1"
+                              id="Capa_1"
+                              x="0px"
+                              y="0px"
+                              viewBox="0 0 510 510"
+                              style="enable-background: new 0 0 510 510"
+                              xml:space="preserve"
+                            >
+                              <path
+                                d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"
+                              ></path>
+                            </svg>
+                          </label>
+                          <p class="js-saved" id="178318">
+                            press the heart to save this drink
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="c-dashboard__item u-x-span-4-bp3 js-cocktails">
+                <div class="c-card">
+                  <div class="c-card__body">
+                    <p class="js-DrinkName">
+                      <strong>A Gilligan's Island</strong>
+                    </p>
+                    <img
+                      src="https://www.thecocktaildb.com/images/media/drink/wysqut1461867176.jpg/preview"
+                      alt="image of cocktail"
+                    />
+                    <div class="c-card__body__wrapper">
+                      <p class="js-glassType">
+                        <strong>Glass type: </strong>Collins glass
+                      </p>
+                      <ul class="c-card__body__list">
+                        <strong>Ingredients</strong>
+                        <li>Vodka - 1 oz</li>
+                        <li>Peach schnapps - 1 oz</li>
+                        <li>Orange juice - 3 oz</li>
+                        <li>Cranberry juice - 3 oz</li>
+                      </ul>
+                      <div class="js-Instructions">
+                        <p><strong>Instructions</strong></p>
+                        <p>Shaken, not stirred!</p>
+
+                        <div class="c-like">
+                          <input
+                            class="o-hide-accessible c-like__input"
+                            type="checkbox"
+                            id="16943"
+                          />
+                          <label
+                            class="c-label c-like__label js-like"
+                            id="16943"
+                            for="16943"
+                          >
+                            <svg
+                              class="c-like__symbol"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1"
+                              id="Capa_1"
+                              x="0px"
+                              y="0px"
+                              viewBox="0 0 510 510"
+                              style="enable-background: new 0 0 510 510"
+                              xml:space="preserve"
+                            >
+                              <path
+                                d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"
+                              ></path>
+                            </svg>
+                          </label>
+                          <p class="js-saved" id="16943">
+                            press the heart to save this drink
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="c-dashboard__item u-x-span-4-bp3 js-cocktails">
+                <div class="c-card">
+                  <div class="c-card__body">
+                    <p class="js-DrinkName">
+                      <strong>57 Chevy with a White License Plate</strong>
+                    </p>
+                    <img
+                      src="https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg/preview"
+                      alt="image of cocktail"
+                    />
+                    <div class="c-card__body__wrapper">
+                      <p class="js-glassType">
+                        <strong>Glass type: </strong>Highball glass
+                      </p>
+                      <ul class="c-card__body__list">
+                        <strong>Ingredients</strong>
+                        <li>Creme de Cacao - 1 oz white</li>
+                        <li>Vodka - 1 oz</li>
+                      </ul>
+                      <div class="js-Instructions">
+                        <p><strong>Instructions</strong></p>
+                        <p>
+                          1. Fill a rocks glass with ice 2.add white creme de
+                          cacao and vodka 3.stir
+                        </p>
+
+                        <div class="c-like">
+                          <input
+                            class="o-hide-accessible c-like__input"
+                            type="checkbox"
+                            id="14029"
+                          />
+                          <label
+                            class="c-label c-like__label js-like"
+                            id="14029"
+                            for="14029"
+                          >
+                            <svg
+                              class="c-like__symbol"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1"
+                              id="Capa_1"
+                              x="0px"
+                              y="0px"
+                              viewBox="0 0 510 510"
+                              style="enable-background: new 0 0 510 510"
+                              xml:space="preserve"
+                            >
+                              <path
+                                d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"
+                              ></path>
+                            </svg>
+                          </label>
+                          <p class="js-saved" id="14029">
+                            press the heart to save this drink
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="c-dashboard__item u-x-span-4-bp3 js-cocktails">
+                <div class="c-card">
+                  <div class="c-card__body">
+                    <p class="js-DrinkName">
+                      <strong>Absolut Summertime</strong>
+                    </p>
+                    <img
+                      src="https://www.thecocktaildb.com/images/media/drink/trpxxs1472669662.jpg/preview"
+                      alt="image of cocktail"
+                    />
+                    <div class="c-card__body__wrapper">
+                      <p class="js-glassType">
+                        <strong>Glass type: </strong>Collins glass
+                      </p>
+                      <ul class="c-card__body__list">
+                        <strong>Ingredients</strong>
+                        <li>Absolut Citron - 1 1/2 oz</li>
+                        <li>Sweet and sour - 3/4 oz</li>
+                        <li>Sprite - 1/2 oz</li>
+                        <li>Soda water - 3 oz</li>
+                        <li>Lemon - 1 slice</li>
+                      </ul>
+                      <div class="js-Instructions">
+                        <p><strong>Instructions</strong></p>
+                        <p>
+                          Add all ingredients except lemon to shaker filled with
+                          ice. Cover and shake vigorously. Strain contents into
+                          ice filled collins glass. Garnish with lemon.
+                        </p>
+
+                        <div class="c-like">
+                          <input
+                            class="o-hide-accessible c-like__input"
+                            type="checkbox"
+                            id="14107"
+                          />
+                          <label
+                            class="c-label c-like__label js-like"
+                            id="14107"
+                            for="14107"
+                          >
+                            <svg
+                              class="c-like__symbol"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1"
+                              id="Capa_1"
+                              x="0px"
+                              y="0px"
+                              viewBox="0 0 510 510"
+                              style="enable-background: new 0 0 510 510"
+                              xml:space="preserve"
+                            >
+                              <path
+                                d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"
+                              ></path>
+                            </svg>
+                          </label>
+                          <p class="js-saved" id="14107">
+                            press the heart to save this drink
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="c-dashboard__item u-x-span-4-bp3 js-cocktails">
+                <div class="c-card">
+                  <div class="c-card__body">
+                    <p class="js-DrinkName">
+                      <strong>A.D.M. (After Dinner Mint)</strong>
+                    </p>
+                    <img
+                      src="https://www.thecocktaildb.com/images/media/drink/ruxuvp1472669600.jpg/preview"
+                      alt="image of cocktail"
+                    />
+                    <div class="c-card__body__wrapper">
+                      <p class="js-glassType">
+                        <strong>Glass type: </strong>Irish coffee cup
+                      </p>
+                      <ul class="c-card__body__list">
+                        <strong>Ingredients</strong>
+                        <li>White Creme de Menthe - 1/2 oz</li>
+                        <li>Southern Comfort - 3/4 oz</li>
+                        <li>Vodka - 1/2 oz</li>
+                        <li>Hot chocolate - Fill with</li>
+                      </ul>
+                      <div class="js-Instructions">
+                        <p><strong>Instructions</strong></p>
+                        <p>shake vigorously</p>
+
+                        <div class="c-like">
+                          <input
+                            class="o-hide-accessible c-like__input"
+                            type="checkbox"
+                            id="14560"
+                          />
+                          <label
+                            class="c-label c-like__label js-like"
+                            id="14560"
+                            for="14560"
+                          >
+                            <svg
+                              class="c-like__symbol"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1"
+                              id="Capa_1"
+                              x="0px"
+                              y="0px"
+                              viewBox="0 0 510 510"
+                              style="enable-background: new 0 0 510 510"
+                              xml:space="preserve"
+                            >
+                              <path
+                                d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"
+                              ></path>
+                            </svg>
+                          </label>
+                          <p class="js-saved" id="14560">
+                            press the heart to save this drink
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="c-dashboard__item u-x-span-4-bp3 js-cocktails">
+                <div class="c-card">
+                  <div class="c-card__body">
+                    <p class="js-DrinkName"><strong>Abbey Martini</strong></p>
+                    <img
+                      src="https://www.thecocktaildb.com/images/media/drink/2mcozt1504817403.jpg/preview"
+                      alt="image of cocktail"
+                    />
+                    <div class="c-card__body__wrapper">
+                      <p class="js-glassType">
+                        <strong>Glass type: </strong>Cocktail glass
+                      </p>
+                      <ul class="c-card__body__list">
+                        <strong>Ingredients</strong>
+                        <li>Gin - 2 shots</li>
+                        <li>Sweet Vermouth - 1 shot</li>
+                        <li>Orange Juice - 1 shot</li>
+                        <li>Angostura Bitters - 3 dashes</li>
+                      </ul>
+                      <div class="js-Instructions">
+                        <p><strong>Instructions</strong></p>
+                        <p>
+                          Put all ingredients into a shaker and mix, then strain
+                          contents into a chilled cocktail glass.
+                        </p>
+
+                        <div class="c-like">
+                          <input
+                            class="o-hide-accessible c-like__input"
+                            type="checkbox"
+                            id="17223"
+                          />
+                          <label
+                            class="c-label c-like__label js-like"
+                            id="17223"
+                            for="17223"
+                          >
+                            <svg
+                              class="c-like__symbol"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1"
+                              id="Capa_1"
+                              x="0px"
+                              y="0px"
+                              viewBox="0 0 510 510"
+                              style="enable-background: new 0 0 510 510"
+                              xml:space="preserve"
+                            >
+                              <path
+                                d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"
+                              ></path>
+                            </svg>
+                          </label>
+                          <p class="js-saved" id="17223">
+                            press the heart to save this drink
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="c-dashboard__item u-x-span-4-bp3 js-cocktails">
+                <div class="c-card">
+                  <div class="c-card__body">
+                    <p class="js-DrinkName"><strong>A1</strong></p>
+                    <img
+                      src="https://www.thecocktaildb.com/images/media/drink/2x8thr1504816928.jpg/preview"
+                      alt="image of cocktail"
+                    />
+                    <div class="c-card__body__wrapper">
+                      <p class="js-glassType">
+                        <strong>Glass type: </strong>Cocktail glass
+                      </p>
+                      <ul class="c-card__body__list">
+                        <strong>Ingredients</strong>
+                        <li>Gin - 1 3/4 shot</li>
+                        <li>Grand Marnier - 1 Shot</li>
+                        <li>Lemon Juice - 1/4 Shot</li>
+                        <li>Grenadine - 1/8 Shot</li>
+                      </ul>
+                      <div class="js-Instructions">
+                        <p><strong>Instructions</strong></p>
+                        <p>
+                          Pour all ingredients into a cocktail shaker, mix and
+                          serve over ice into a chilled glass.
+                        </p>
+
+                        <div class="c-like">
+                          <input
+                            class="o-hide-accessible c-like__input"
+                            type="checkbox"
+                            id="17222"
+                          />
+                          <label
+                            class="c-label c-like__label js-like"
+                            id="17222"
+                            for="17222"
+                          >
+                            <svg
+                              class="c-like__symbol"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1"
+                              id="Capa_1"
+                              x="0px"
+                              y="0px"
+                              viewBox="0 0 510 510"
+                              style="enable-background: new 0 0 510 510"
+                              xml:space="preserve"
+                            >
+                              <path
+                                d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"
+                              ></path>
+                            </svg>
+                          </label>
+                          <p class="js-saved" id="17222">
+                            press the heart to save this drink
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="c-dashboard__item u-x-span-4-bp3 js-cocktails">
+                <div class="c-card">
+                  <div class="c-card__body">
+                    <p class="js-DrinkName"><strong>9 1/2 Weeks</strong></p>
+                    <img
+                      src="https://www.thecocktaildb.com/images/media/drink/xvwusr1472669302.jpg/preview"
+                      alt="image of cocktail"
+                    />
+                    <div class="c-card__body__wrapper">
+                      <p class="js-glassType">
+                        <strong>Glass type: </strong>Cocktail glass
+                      </p>
+                      <ul class="c-card__body__list">
+                        <strong>Ingredients</strong>
+                        <li>Absolut Citron - 2 oz</li>
+                        <li>Orange Curacao - 1/2 oz</li>
+                        <li>Strawberry liqueur - 1 splash</li>
+                        <li>Orange juice - 1 oz</li>
+                      </ul>
+                      <div class="js-Instructions">
+                        <p><strong>Instructions</strong></p>
+                        <p>
+                          Combine all ingredients in glass mixer. Chill and
+                          strain into Cocktail glass. Garnish with sliced
+                          strawberry.
+                        </p>
+
+                        <div class="c-like">
+                          <input
+                            class="o-hide-accessible c-like__input"
+                            type="checkbox"
+                            id="16108"
+                          />
+                          <label
+                            class="c-label c-like__label js-like"
+                            id="16108"
+                            for="16108"
+                          >
+                            <svg
+                              class="c-like__symbol"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1"
+                              id="Capa_1"
+                              x="0px"
+                              y="0px"
+                              viewBox="0 0 510 510"
+                              style="enable-background: new 0 0 510 510"
+                              xml:space="preserve"
+                            >
+                              <path
+                                d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"
+                              ></path>
+                            </svg>
+                          </label>
+                          <p class="js-saved" id="16108">
+                            press the heart to save this drink
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="c-dashboard__item u-x-span-4-bp3 js-cocktails">
+                <div class="c-card">
+                  <div class="c-card__body">
+                    <p class="js-DrinkName">
+                      <strong>A True Amaretto Sour</strong>
+                    </p>
+                    <img
+                      src="https://www.thecocktaildb.com/images/media/drink/rptuxy1472669372.jpg/preview"
+                      alt="image of cocktail"
+                    />
+                    <div class="c-card__body__wrapper">
+                      <p class="js-glassType">
+                        <strong>Glass type: </strong>Old-fashioned glass
+                      </p>
+                      <ul class="c-card__body__list">
+                        <strong>Ingredients</strong>
+                        <li>Amaretto - 1 jigger</li>
+                        <li>Lemon - Juice of 1/2</li>
+                      </ul>
+                      <div class="js-Instructions">
+                        <p><strong>Instructions</strong></p>
+                        <p>
+                          Rub the rim of an old fashioned glass with lemon, and
+                          dip repeatedly into granulated sugar until it has a
+                          good "frosted" rim. Shake a jigger of Amaretto with
+                          the juice of 1/2 a lemon. Strain into glass and add
+                          ice. Garnish with a Marachino Cherry.
+                        </p>
+
+                        <div class="c-like">
+                          <input
+                            class="o-hide-accessible c-like__input"
+                            type="checkbox"
+                            id="17005"
+                          />
+                          <label
+                            class="c-label c-like__label js-like"
+                            id="17005"
+                            for="17005"
+                          >
+                            <svg
+                              class="c-like__symbol"
+                              xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink"
+                              version="1.1"
+                              id="Capa_1"
+                              x="0px"
+                              y="0px"
+                              viewBox="0 0 510 510"
+                              style="enable-background: new 0 0 510 510"
+                              xml:space="preserve"
+                            >
+                              <path
+                                d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z"
+                              ></path>
+                            </svg>
+                          </label>
+                          <p class="js-saved" id="17005">
+                            press the heart to save this drink
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        
-    </div>
+      </div>
     </div>
     <!-- onderaan de pagina -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="script/app.js"></script>
-
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
 </html>

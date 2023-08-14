@@ -19,14 +19,12 @@
 \*------------------------------------*/
 
 :root {
-  /* Global colors */
   --global-text-color: Black;
+  --global-color-gray : #aaaaaa ;
   --global-color-transparent: white;
   --global-color-alpha-light: #A3A0FB80;
   --global-color-alpha: #0085FF;
-
   --global-color-beta: #3B86FF;
-
   --global-color-neutral-xxxx-light: #FFFFFF;
   --global-color-neutral-xxx-light: #CCE6FF;
   --global-color-neutral-xx-light: #99CEFF;
@@ -36,47 +34,53 @@
   --global-color-neutral-dark: #006DD1;
   --global-color-neutral-x-dark: #0055A3;
   --global-color-neutral-xx-dark: #003D75;
-
-  /* Shadows */
+  --global-color-neutral-xxxx-dark: #006DD1;
   --global-box-shadow: 0 0 0 1px rgba(0, 0, 0, .025), 0 2px 6px rgba(0, 0, 0, .05);
   --global-box-shadow-lg: 0 0 0 1px rgba(0, 0, 0, .025), 0 2px 10px rgba(0, 0, 0, .1);
-
   --global-input-shadow: 0 2px 3px rgba(0, 0, 0, .05);
   --global-input-focus-shadow: 0 0 5px var(--global-color-alpha-light);
-
-  /* radius */
   --global-borderRadius: var(--global-baseline);
-
-  /* baseline */
   --global-baseline: 8px;
   --global-whitespace-xxs: var(--global-baseline);
-  /* = 8px */
   --global-whitespace-xs: calc(var(--global-baseline) * 2);
-  /* = 16px */
   --global-whitespace-sm: calc(var(--global-baseline) * 3);
-  /* = 24px */
   --global-whitespace-md: calc(var(--global-baseline) * 4);
-  /* = 32px */
   --global-whitespace-lg: calc(var(--global-baseline) * 5);
-  /* = 40px */
   --global-whitespace-xl: calc(var(--global-baseline) * 6);
-  /* = 48px */
-
-  /* global page settings */
   --global-page-backgroundColor: var(--global-color-transparent);
   --global-page-textColor: var(--global-color-dark);
   --global-selection-backgroundColor: var(--global-color-beta);
+  --global-input-borderColor: none;
+  --global-unput-switchColor-unchecked: #fafafa;
 
-      /* fonts */
-      --global-fontFamily: "IBMPlex", sans-serif;
-      --global-fontSize: var(--global-whitespace-xs);
-      --global-fontWeight-light : 400;
-      --global-fontWeight-heavy : 600;
 
-    /* transitions */
-    --global-transition-alpha: .2s;
-	--global-transition-beta: 1s;
-
+  --global-fontFamily: "IBMPlex", sans-serif;
+  --global-fontSize: var(--global-whitespace-xs);
+  --global-fontWeight-light: 400;
+  --global-fontWeight-heavy: 600;
+  --global-transitionDuration-alpha: .1s;
+  --global-transitionDuration-beta: .2s;
+  --global-transitionEasing-out: ease-out;
+}
+@media (prefers-color-scheme: dark)
+{
+:root {
+    --global-page-color: White;
+    --global-page-backgroundColor: var(--global-color-neutral-xxxx-dark);
+    --global-placeholder-color: var(--global-color-neutral-dark);
+    --global-input-backgroundColor: var(--global-color-neutral-xxxx-dark);
+    --global-input-color: var(--global-color-neutral-xxxx-light);
+    --global-input-borderColor: var(--global-input-backgroundColor);
+    --global-input-hover-borderColor: var(--global-input-backgroundColor);
+    --global-input-focus-borderColor: var(--global-input-backgroundColor);
+    --global-input-focus-boxShadowColor: var(--global-color-alpha-transparent);
+    --global-input-error-borderColor: var(--global-input-backgroundColor);
+    --global-input-error-boxShadowColor: var(--global-color-error-transparent);
+}
+}
+.c-option__text
+{
+  margin: 0;
 }
 
 /*------------------------------------*\
@@ -129,27 +133,15 @@ body {}
 \*------------------------------------*/
 /* setup */
 
-.container {
-  display: flex;
-  overflow: auto;
-  outline: 1px dashed lightgray;
-  flex: none;
-}
 
-.container.y {
-  width: 100%;
-  height: 100%;
-  flex-flow: column nowrap;
-}
-
-.container > div {
-  scroll-snap-align: center;  
+.o-container > .c-dashboard {
+  /* scroll-snap-align: center;   */
 }
 /* scroll-snap */
 
-.y.mandatory-scroll-snapping {
-  /* scroll-snap-type: y mandatory; */
-  scroll-snap-type: y proximity;
+.mandatory-scroll-snapping {
+  /* scroll-snap-type: both mandatory;
+  */
 }
 
 
@@ -238,6 +230,18 @@ body {}
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
+
+/*
+    Component: App
+*/
+.c-app {
+  --c-app__topbar-height: calc(var(--global-baseline) * 8);
+  min-height: 100vh;
+}
+
+/*
+    Component: Logo
+*/
 .c-logo {
   margin: 0;
   /* font-size: 15px; */
@@ -248,14 +252,9 @@ body {}
   letter-spacing: .125rem; /* 2px / 16px */
   line-height: var(--global-whitespace-md);
   color: var(--global-color-neutral-xxxx-light);
+  cursor : pointer;
 }
-/*
-    Component: Robot
-*/
-.c-app {
-  --c-app__topbar-height: calc(var(--global-baseline) * 8);
-  min-height: 100vh;
-}
+
 .c-app__logo {
   background-color: var(--global-color-neutral-xx-dark);
   padding: 0 var(--global-whitespace-lg);
@@ -263,16 +262,185 @@ body {}
   display: flex;
   align-items: center;
 }
+
+/*
+    Component: TopBar
+*/
+
+
 .c-app__topbar {
   background-color: var(--global-color-neutral-xxxx-light);
   box-shadow: var(--global-box-shadow);
   z-index: 20;
   display: none;
 }
+
+.c-topbar {
+  padding: 0 var(--global-whitespace-lg);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.c-topbar-button__wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.c-topbar__link{
+  text-decoration: none;
+  color: black;
+}
+.c-topbar__link:hover{
+  color: var(--global-color-neutral-x-light);
+}
+
+.c-search {
+  display: flex;
+  align-items: center;
+  width: 33%;
+}
+.c-search__input {
+  all: unset;
+  line-height: var(--global-whitespace-xl);
+}
+.c-search__button {
+  display: block;
+  background-color: transparent;
+  cursor: pointer;
+  /* border: none; */
+}
+.c-search__icon {
+  display: block;
+  /* width: 16px;
+  height: 16px; */
+  width: var(--global-whitespace-xs);
+  height: var(--global-whitespace-xs);
+  fill: var(--global-color-neutral-x-light);
+}
+.c-topbar__button {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  /* border: none; */
+  cursor: pointer;
+  width: 40%;
+}
+.c-topbar__switch{
+display: flex;
+align-items: center;
+}
+/*
+    Component: Custom Toggle
+    ---
+    Visually change a checkbox into a toggle
+*/
+
+.c-custom-toggle {
+  --toggle-backgroundColor: var(
+  --global-color-neutral-xxxx-light);
+  --toggle-borderColor: var(
+  --global-input-borderColor);
+  --toggle-focus-borderColor: var(
+  --global-input-focus-borderColor);
+  --toggle-checked-borderColor: var(
+  --global-color-alpha-dark);
+  --toggle-checked-backgroundColor: var(
+  --global-color-alpha);
+  --toggle-focus-boxShadow: var(
+  --global-input-focus-boxShadowSpread) var(--global-input-focus-boxShadowColor);
+  --toggle-transition: all var(
+  --global-transitionDuration-alpha) var(--global-transitionEasing-out);
+  --toggle__switch-backgroundColor: White;
+  --toggle__switch-checked-backgroundColor: White;
+  --toggle__switch-transition: all var(
+  --global-transitionDuration-alpha) var(--global-transitionEasing-out);
+  display: flex;
+  align-items: center;
+}
+
+.c-custom-toggle__fake-input {
+  display: block;
+  height: 24px;
+  width: 48px;
+  margin-right: 16px;
+  background-color: var(--toggle-backgroundColor);
+  border-radius: 32px;
+  border: 1px solid var(--toggle-borderColor);
+  transition: var(--toggle-transition);
+  box-shadow: var(--toggle-boxShadow, 0);
+}
+
+.c-custom-toggle__fake-input::after {
+  position: relative;
+  display: block;
+  content: '';
+  height: 22px;
+  width: 22px;
+  border-radius: 22px;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .2);
+  background-color: var(--toggle__switch-backgroundColor);
+  transition: var(--toggle__switch-transition);
+}
+
+/* focused and active state */
+
+.c-option--hidden:focus-visible+.c-custom-toggle {
+  --toggle-borderColor: var(--toggle-focus-borderColor);
+  --toggle-boxShadow: var(--toggle-focus-boxShadow);
+}
+
+/* checked state */
+
+.c-option--hidden:checked+.c-custom-toggle {
+  --toggle-backgroundColor: var(
+  --toggle-checked-backgroundColor);
+  --toggle-borderColor: var(
+  --toggle-checked-borderColor);
+  --toggle__switch-backgroundColor: var(
+  --toggle__switch-checked-backgroundColor);
+}
+
+.c-option--hidden:checked+.c-custom-toggle .c-custom-toggle__fake-input::after {
+  transform: translate(24px, 0);
+}
+
+/* special active state */
+
+.c-option--hidden:active+.c-custom-toggle .c-custom-toggle__fake-input::after {
+  width: 28px;
+}
+
+.c-option--hidden:active:checked+.c-custom-toggle .c-custom-toggle__fake-input::after {
+  margin-left: -6px;
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .c-custom-toggle {
+      --toggle-backgroundColor: var(
+      --global-input-backgroundColor);
+      --toggle-checked-borderColor: var(
+      --toggle-checked-backgroundColor);
+      --toggle-focus-boxShadow: 0 0 0 1px var(
+      --global-color-neutral-xxxx-dark), var(--global-input-focus-boxShadowSpread) var(--global-input-focus-boxShadowColor);
+      --toggle__switch-backgroundColor: var(--global-unput-switchColor-unchecked);
+  }
+}
+
+
+/*
+    Component: SideBar
+*/
+
 .c-app__sidebar {
   background-color: var(--global-color-neutral-x-dark);
   display: none;
 }
+
+/*
+    Component: Main
+*/
 .c-app__main {
   background-color: var(--global-color-neutral-xxx-light);
 }
@@ -301,13 +469,57 @@ body {}
     display: none;
   }
   .c-app__main::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
   }
   .y.mandatory-scroll-snapping::-webkit-scrollbar {
     display: none;
   }
   
 }
+/* min widht = 62em */
+@media (min-width: 62em) {
+  .c-like{
+    display: flex;
+    align-items:center ;
+  }
+  .c-like p{
+    color: var(--global-color-gray);
+  }
+  .c-label{
+    margin-right: var(--global-baseline);
+  }
+}
+
+
+.c-like__symbol {
+  position: relative;
+  width: 24px;
+  fill: var(--global-color-neutral-x-light);
+  transform: scale(1);
+  transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 2.275);
+  will-change: transform;
+}
+/* when clicked */
+.c-like__input:checked+.c-like__label .c-like__symbol {
+  transform: scale(1.1);
+  fill: #D80027;
+}
+.c-delete__symbol {
+  position: relative;
+  width: 24px;
+  fill: var(--global-color-neutral-x-light);
+  transform: scale(1);
+  transition: transform .5s cubic-bezier(0.175, 0.885, 0.32, 2.275);
+  will-change: transform;
+}
+/* when clicked */
+.c-like__input:checked+.c-like__label .c-delete__symbol {
+  transform: scale(1.1);
+  fill: green;
+}
+
+
+
 
 /*
     Component: Main Navigation
@@ -367,48 +579,31 @@ body {}
   fill: var(--global-color-alpha);
 }
 
-.c-topbar {
-  padding: 0 var(--global-whitespace-lg);
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 62em)
+{
+.c-dashboard {
+    grid-template-columns: repeat(12, 1fr);
 }
-.c-search {
-  display: flex;
-  align-items: center;
-  /* flex-direction: row-reverse; */
-  width: 100%;
-}
-.c-search__input {
-  all: unset;
-  width: 100%;
-  line-height: var(--global-whitespace-xl);
-}
-.c-search__button {
-  display: block;
-  background-color: transparent;
-  margin-left: var(--global-whitespace-sm);
-  /* border: none; */
-}
-.c-search__icon {
-  display: block;
-  /* width: 16px;
-  height: 16px; */
-  width: var(--global-whitespace-xs);
-  height: var(--global-whitespace-xs);
-  fill: var(--global-color-neutral-x-light);
 }
 
 .c-dashboard {
-  display: grid;
-  grid-gap: var(--global-whitespace-lg);
-  margin-bottom: var(--global-whitespace-md);
+    display: grid;
+    grid-gap: var(--global-whitespace-lg);
+    margin-bottom: var(--global-whitespace-md);
 }
-.c-dashboard__item {
-  box-shadow: var(--global-box-shadow);
-  background-color: var(--global-color-neutral-xxxx-light);
-}
+
 /* resizeable */
 @media screen and (min-width: 62em) {
   .c-dashboard {
@@ -422,9 +617,17 @@ body {}
 
 .c-card {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   border-top: 4px solid var(--global-color-neutral-x-dark);
+  border-radius: 0 0 var(--global-baseline) var(--global-baseline);
+  background-color: var(--global-color-neutral-xxxx-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
 }
+/* card when there is a canvas */
+
 
 .c-card:hover{
   border-top: 8px solid var(--global-color-neutral-x-dark);
@@ -442,6 +645,36 @@ body {}
 .c-card__body {
     padding: var(--global-whitespace-md);
     position: relative;
+}
+.c-card__body p {
+    margin: 0 0 var(--global-baseline) 0;
+}
+/* so that the like button does take this space */
+
+.c-card__body__wrapper
+{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.c-card__body__list{
+  list-style: none;
+  padding : 0;
+  margin-top: var(--global-baseline);
+  margin-bottom: calc(var(--global-baseline * 3));
+
+}
+.c-card__canvas{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: var(--global-color-neutral-xxxx-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 div .c-card__body:has(>button)
