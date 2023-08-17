@@ -927,292 +927,293 @@ const listenToSwitch = function () {
 const listenToList = function (state) {
   //get all buttons
   if (state == true) {
-  
-  const list = document.querySelectorAll(".js-category");
-  //console.log(list);
-  //check what button is clicked
-  for (const item of list) {
-    item.addEventListener("click", async function () {
-      //get the position of switch
-      const alcoholType = document.querySelector(".js-switch__text").innerHTML;
-      console.log(`clicked ${item.innerHTML} ${alcoholType}`);
+    const list = document.querySelectorAll(".js-category");
+    //console.log(list);
+    //check what button is clicked
+    for (const item of list) {
+      item.addEventListener("click", async function () {
+        //get the position of switch
+        const alcoholType =
+          document.querySelector(".js-switch__text").innerHTML;
+        console.log(`clicked ${item.innerHTML} ${alcoholType}`);
 
-      //get js-title
-      const title = document.querySelector(".js-title");
+        //get js-title
+        const title = document.querySelector(".js-title");
 
-      //dubbelcheck clickitem
-      if (item.innerHTML == "Cocktail") {
-        title.innerHTML = "Recommended " + item.innerHTML;
-        let selector = "Cocktail";
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Ordinary Drink") {
-        let selector = "Ordinary_Drink";
-        title.innerHTML = "Recommended " + item.innerHTML;
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Shake") {
-        let selector = "Shake";
-        title.innerHTML = "Recommended " + item.innerHTML;
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Other / Unknown") {
-        let selector = "Other%20/%20Unknown";
-        title.innerHTML = "Recommended " + item.innerHTML;
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Cocoa") {
-        let selector = "Cocoa";
-        title.innerHTML = "Recommended " + item.innerHTML;
+        //dubbelcheck clickitem
+        if (item.innerHTML == "Cocktail") {
+          title.innerHTML = "Recommended " + item.innerHTML;
+          let selector = "Cocktail";
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Ordinary Drink") {
+          let selector = "Ordinary_Drink";
+          title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Shake") {
+          let selector = "Shake";
+          title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Other / Unknown") {
+          let selector = "Other%20/%20Unknown";
+          title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Cocoa") {
+          let selector = "Cocoa";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Shot") {
-        let selector = "Shot";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Shot") {
+          let selector = "Shot";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Coffee / Tea") {
-        let selector = "Coffee%20/%20Tea";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Coffee / Tea") {
+          let selector = "Coffee%20/%20Tea";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Homemade Liqueur") {
-        let selector = "Homemade%20Liqueur";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Homemade Liqueur") {
+          let selector = "Homemade%20Liqueur";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Punch / Party Drink") {
-        let selector = "Punch%20/%20Party%20Drink";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Punch / Party Drink") {
+          let selector = "Punch%20/%20Party%20Drink";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Beer") {
-        let selector = "Beer";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Beer") {
+          let selector = "Beer";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Soft Drink") {
-        let selector = "Soft%20Drink";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Soft Drink") {
+          let selector = "Soft%20Drink";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await  getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
         }
-      }
-      //check if alcoholic or non-alcoholic
+        //check if alcoholic or non-alcoholic
 
-      //add active class
-      item.classList.add("is-selected");
-      //remove active class from other buttons
-      for (const item of list) {
-        item.classList.remove("is-selected");
-      }
-    });
-  }
+        //add active class
+        item.classList.add("is-selected");
+        //remove active class from other buttons
+        for (const item of list) {
+          item.classList.remove("is-selected");
+        }
+      });
+    }
   } else {
     const list = document.querySelectorAll(".js-category");
-  //console.log(list);
-  //check what button is clicked
-  for (const item of list) {
-    item.addEventListener("click", async function () {
-      //get the position of switch
-      const alcoholType = document.querySelector(".js-switch__text").innerHTML;
-      console.log(`clicked ${item.innerHTML} ${alcoholType}`);
+    //console.log(list);
+    //check what button is clicked
+    for (const item of list) {
+      item.addEventListener("click", async function () {
+        //get the position of switch
+        const alcoholType =
+          document.querySelector(".js-switch__text").innerHTML;
+        console.log(`clicked ${item.innerHTML} ${alcoholType}`);
 
-      //get js-title
-      const title = document.querySelector(".js-title");
+        //get js-title
+        const title = document.querySelector(".js-title");
 
-      //dubbelcheck clickitem
-      if (item.innerHTML == "Cocktail") {
-        title.innerHTML = "Recommended " + item.innerHTML;
-        let selector = "Cocktail";
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Ordinary Drink") {
-        let selector = "Ordinary_Drink";
-        title.innerHTML = "Recommended " + item.innerHTML;
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Shake") {
-        let selector = "Shake";
-        title.innerHTML = "Recommended " + item.innerHTML;
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Other / Unknown") {
-        let selector = "Other%20/%20Unknown";
-        title.innerHTML = "Recommended " + item.innerHTML;
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Cocoa") {
-        let selector = "Cocoa";
-        title.innerHTML = "Recommended " + item.innerHTML;
+        //dubbelcheck clickitem
+        if (item.innerHTML == "Cocktail") {
+          title.innerHTML = "Recommended " + item.innerHTML;
+          let selector = "Cocktail";
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Ordinary Drink") {
+          let selector = "Ordinary_Drink";
+          title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Shake") {
+          let selector = "Shake";
+          title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Other / Unknown") {
+          let selector = "Other%20/%20Unknown";
+          title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Cocoa") {
+          let selector = "Cocoa";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Shot") {
-        let selector = "Shot";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Shot") {
+          let selector = "Shot";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Coffee / Tea") {
-        let selector = "Coffee%20/%20Tea";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Coffee / Tea") {
+          let selector = "Coffee%20/%20Tea";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Homemade Liqueur") {
-        let selector = "Homemade%20Liqueur";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Homemade Liqueur") {
+          let selector = "Homemade%20Liqueur";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Punch / Party Drink") {
-        let selector = "Punch%20/%20Party%20Drink";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Punch / Party Drink") {
+          let selector = "Punch%20/%20Party%20Drink";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Beer") {
-        let selector = "Beer";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Beer") {
+          let selector = "Beer";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
-        }
-      } else if (item.innerHTML == "Soft Drink") {
-        let selector = "Soft%20Drink";
-        title.innerHTML = "Recommended " + item.innerHTML;
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
+        } else if (item.innerHTML == "Soft Drink") {
+          let selector = "Soft%20Drink";
+          title.innerHTML = "Recommended " + item.innerHTML;
 
-        if (alcoholType == "Alcoholic") {
-          //get filtered data
-          await  getListData(selector, true);
-        } else {
-          //get filtered data
-          await getListData(selector, false);
+          if (alcoholType == "Alcoholic") {
+            //get filtered data
+            await getListData(selector, true);
+          } else {
+            //get filtered data
+            await getListData(selector, false);
+          }
         }
-      }
         //remove the div by adding c-display
         const ul = this.closest("ul"); // Find the closest parent ul element
-        ul.classList.add("c-display");
-  }
-)};
+        //ul.classList.add("c-display");
+      });
+    }
   }
 };
-    
+
 const listenToSavedDrinks = function () {
-    //remoe the div by adding c-display
-    // const menu = document.querySelector(".c-display");
-    // menu.classList.add("c-display");
+  //remoe the div by adding c-display
+  // const menu = document.querySelector(".c-display");
+  // menu.classList.add("c-display");
 
   //get js-savedDrinks
   const savedDrinks = document.querySelector(".js-savedDrinks");
@@ -1314,7 +1315,7 @@ const listenToData = function () {
     htmlData += `<div class="c-dashboard__item">
         <div class="c-card">
         <div class="c-card__header">
-        Ratio between non-alcoholic and alcoholic cocktails per category
+        Ratio between non-alcoholic and alcoholic drinks per category
     </div>
             <div class="c-card__body">
             <canvas class='c-card__canvas' id="myRatioChart" width='800px' height='400' style="display=flex; align-items=center;" >Amount of cocktails per category</canvas>
@@ -1465,13 +1466,9 @@ const ConvertData = async function (
   count = 0;
   // Iterate through unfilteredOrdinaryDrink
   for (let i = 0; i < 10; i++) {
-    count ++;
-    await getCocktailInfo(
-      unfilteredDict[i].idDrink,
-      listName,
-      listName2
-      );
-      cocktailPromises.push(count);
+    count++;
+    await getCocktailInfo(unfilteredDict[i].idDrink, listName, listName2);
+    cocktailPromises.push(count);
   }
 
   // Wait for all cocktail promises to resolve
@@ -1507,6 +1504,17 @@ const searchCocktail = async function (input) {
     showCocktail(data.drinks[0]);
   } catch (error) {
     console.log(error);
+
+    //tell that there are no cocktails found
+    const dashboard = document.querySelector(".js-dashboard");
+    dashboard.innerHTML = `<div class="c-dashboard__item u-x-span-4-bp3  js-cocktails">
+    <div class="c-card">
+        <div class="c-card__body">
+            <p class="js-DrinkName"><strong>No drinks found !</strong></p>
+            <p class="js-DrinkName">Search input didn't find any drinks</p>
+        </div>
+    </div>
+</div>`;
     return null;
   }
 };

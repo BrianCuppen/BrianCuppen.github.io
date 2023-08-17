@@ -378,6 +378,7 @@ align-items: center;
   height: 24px;
   width: 48px;
   margin-right: 16px;
+
   background-color: var(--toggle-backgroundColor);
   border-radius: 32px;
   border: 1px solid var(--toggle-borderColor);
@@ -391,6 +392,9 @@ align-items: center;
   content: '';
   height: 22px;
   width: 22px;
+  /* left : 24px; */
+
+  
   border-radius: 22px;
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .2);
   background-color: var(--toggle__switch-backgroundColor);
@@ -420,6 +424,7 @@ align-items: center;
 
 .c-option--hidden:checked+.c-custom-toggle .c-custom-toggle__fake-input::after {
   transform: translate(24px, 0);
+  /* transform: translate(-24px, 0); */
 }
 
 /* special active state */
@@ -468,7 +473,7 @@ align-items: center;
   scroll-snap-type: y proximity;
   width: 200px;
 }
-.c-display{
+.3{
   display: none;
 }
 
