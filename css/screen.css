@@ -43,7 +43,7 @@
   --global-baseline: 8px;
   --global-whitespace-xxs: var(--global-baseline);
   --global-whitespace-xs: calc(var(--global-baseline) * 2);
-  --global-whitespace-sm: calc(var(--global-baseline) * 3);
+  --global-whitespace-sm: calc(var(--global-baseline) * 3); 
   --global-whitespace-md: calc(var(--global-baseline) * 4);
   --global-whitespace-lg: calc(var(--global-baseline) * 5);
   --global-whitespace-xl: calc(var(--global-baseline) * 6);
@@ -230,7 +230,24 @@ body {}
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
-
+/* cusotm checkbox */
+.c-custom-option{
+  fill: none;
+}
+.c-custom-option__fake-input--checkbox {
+  border-radius: var(--global-baseline);
+}
+.c-custom-option__fake-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: var(--global-whitespace-xs); 
+  border: 1px solid var(--custom-option-borderColor);
+  transition: all var(--custom-option-transition);
+  box-shadow: var(--custom-option-boxShadow, 0);
+}
 /*
     Component: App
 */
@@ -272,7 +289,7 @@ body {}
   background-color: var(--global-color-neutral-xxxx-light);
   box-shadow: var(--global-box-shadow);
   z-index: 20;
-  display: none;
+  /* display: none; */
 }
 
 .c-topbar {
@@ -290,9 +307,6 @@ body {}
 .c-topbar__link{
   text-decoration: none;
   color: black;
-}
-.c-topbar__link:hover{
-  color: var(--global-color-neutral-x-light);
 }
 
 .c-search {
@@ -382,6 +396,9 @@ align-items: center;
   background-color: var(--toggle__switch-backgroundColor);
   transition: var(--toggle__switch-transition);
 }
+.c-custom-toggle__fake-input:hover{
+  /*  */
+}
 
 /* focused and active state */
 
@@ -437,6 +454,26 @@ align-items: center;
   background-color: var(--global-color-neutral-x-dark);
   display: none;
 }
+.c-app__sidebar--mobile {
+  /* change color */
+  background-color: var(--global-color-neutral-xx-dark);
+  /* put it over c-main */
+  position: absolute;
+  height: auto;
+  z-index: 1;
+  /* textcolor white */
+  color: var(--global-color-neutral-xxxx-light);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y proximity;
+  width: 200px;
+}
+.c-display{
+  display: none;
+}
+
+
+/* when mobile we have to remove this classlist */
 
 /*
     Component: Main
@@ -446,49 +483,11 @@ align-items: center;
 }
 
 /* resizeable */
-@media (min-width: 62em) {
 
-  .c-app__topbar,
-  .c-app__sidebar {
-      display: block;
-  }
 
-  .c-app {
-      display: grid;
-      grid-template-columns: 17rem 1fr;
-      grid-template-rows: var(--c-app__topbar-height) 1fr;
-  }
-  .c-app__sidebar,
-  .c-app__main {
-      height: calc(100vh - var(--c-app__topbar-height));
-      overflow-y: scroll; /* the ability to scroll */
-      overflow-x: hidden;
-      scroll-snap-type: y proximity;
-  }
-  .c-app__sidebar::-webkit-scrollbar {
-    display: none;
-  }
-  .c-app__main::-webkit-scrollbar {
-    /* display: none; */
-  }
-  .y.mandatory-scroll-snapping::-webkit-scrollbar {
-    display: none;
-  }
-  
-}
-/* min widht = 62em */
-@media (min-width: 62em) {
-  .c-like{
-    display: flex;
-    align-items:center ;
-  }
-  .c-like p{
-    color: var(--global-color-gray);
-  }
-  .c-label{
-    margin-right: var(--global-baseline);
-  }
-}
+/* adjust when smaller */
+
+
 
 
 .c-like__symbol {
@@ -533,6 +532,14 @@ align-items: center;
 .c-main-nav__item {
   margin: var(--global-baseline) 0;
 }
+.c-main-nav__mobile-item {
+  color: white;
+  padding-right: var(--global-baseline);
+  text-decoration: none;
+  /* make margin top and bottom */
+  margin: var(--global-baseline) 0 0 var(--global-baseline);; 
+  
+}
 
 .c-main-nav__link {
   display: flex;
@@ -541,7 +548,7 @@ align-items: center;
   color: var(--global-color-neutral-xxxx-light);
   font-size: var(--global-whitespace-xs);    
   line-height: var(--global-whitespace-md);
-  padding: var(--global-whitespace-xs) var(--global-whitespace-lg) var(--global-whitespace-xs) var(--global-whitespace-md);
+  padding: var(--global-baseline) var(--global-baseline) var(--global-baseline) var(--global-whitespace-md);
   border-left: 5px solid var(--global-color-alpha);
   transform: translateX(-5px);
   width: calc(100% + 5px);
@@ -591,29 +598,16 @@ align-items: center;
 
 
 
-@media screen and (min-width: 62em)
-{
-.c-dashboard {
-    grid-template-columns: repeat(12, 1fr);
-}
-}
+
 
 .c-dashboard {
     display: grid;
     grid-gap: var(--global-whitespace-lg);
     margin-bottom: var(--global-whitespace-md);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 /* resizeable */
-@media screen and (min-width: 62em) {
-  .c-dashboard {
-      grid-template-columns: repeat(12, 1fr);
-  }
-
-  .c-dashboard__item {
-      grid-column: 1 / -1;
-  }
-}
 
 .c-card {
   width: 100%;
@@ -798,9 +792,74 @@ div .c-card__body:has(>svg)
 .u-max-width-none {
   max-width: none !important;
 }
+.c-menu {
+  display: block;
+}
 /*------------------------------------*\
 #MEDIA
 \*------------------------------------*/
+@media (min-width: 62em) {
+
+  .c-app__topbar,
+  .c-app__sidebar {
+      display: block;
+      position: block;
+  }
+  .c-menu {
+    display: none;
+  }
+  .c-display {
+    display: none;
+  }
+  .c-app {
+      display: grid;
+      grid-template-columns: 17rem 1fr;
+      grid-template-rows: var(--c-app__topbar-height) 1fr;
+  }
+  .c-app__sidebar,
+  .c-app__main {
+      height: calc(100vh - var(--c-app__topbar-height));
+      overflow-y: scroll; /* the ability to scroll */
+      overflow-x: hidden;
+      scroll-snap-type: y proximity;
+  }
+  .c-app__sidebar::-webkit-scrollbar {
+    display: none;
+  }
+  .c-app__main::-webkit-scrollbar {
+    /* display: none; */
+  }
+  .y.mandatory-scroll-snapping::-webkit-scrollbar {
+    display: none;
+  }
+  
+}
+/* min widht = 62em */
+@media (min-width: 62em) {
+  .c-like{
+    display: flex;
+    align-items:center ;
+  }
+  .c-like p{
+    color: var(--global-color-gray);
+  }
+  .c-label{
+    margin-right: var(--global-baseline);
+  }
+}
+.c-option:focus-visible{
+  border: 2px solid black;
+  border-radius: 10px;
+}
+@media screen and (min-width: 62em) {
+  .c-dashboard {
+      grid-template-columns: repeat(12, 1fr);
+  }
+
+  .c-dashboard__item {
+      grid-column: 1 / -1;
+  }
+}
 
 @media (min-width: 62em) {
 
@@ -832,6 +891,14 @@ div .c-card__body:has(>svg)
   }
 
 }
+
+
+/* adjust when smaller */
+
+
+
+
+
 /*
     Print styles.
     ---

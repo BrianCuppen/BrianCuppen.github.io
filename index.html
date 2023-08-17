@@ -17,6 +17,21 @@
       </div>
       <div class="c-app__topbar">
         <div class="c-topbar">
+          <div class="c-option">
+            <input type="checkbox" id="menubox" class="o-hide-accessible c-option c-option--hidden js-input">
+              <label class="c-label c-label--option c-custom-option" for="menubox">
+                <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
+                  <svg class="c-custom-option__symbol c-menu " fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                  width="800px" height="800px" viewBox="0 0 124 124" xml:space="preserve">
+               <g>
+                 <path d="M112,6H12C5.4,6,0,11.4,0,18s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,6,112,6z"/>
+                 <path d="M112,50H12C5.4,50,0,55.4,0,62c0,6.6,5.4,12,12,12h100c6.6,0,12-5.4,12-12C124,55.4,118.6,50,112,50z"/>
+                 <path d="M112,94H12c-6.6,0-12,5.4-12,12s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,94,112,94z"/>
+               </g>
+               </svg>
+                </span>
+              </label>
+          </div>
           <form class="c-search">
             <input
               type="text"
@@ -64,6 +79,11 @@
       <div class="c-app__sidebar disableScroll">
         <nav class="c-main-nav">
           <ul class="o-list c-main-nav__list js-categories"></ul>
+        </nav>
+      </div>
+      <div class="c-app__sidebar--mobile disableScroll c-display">
+        <nav class="c-main-nav">
+          <ul class="o-list c-main-nav__list js-mobile-selector"></ul>
         </nav>
       </div>
       <div class="c-app__main">
