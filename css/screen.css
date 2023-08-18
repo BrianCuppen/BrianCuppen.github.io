@@ -473,7 +473,7 @@ align-items: center;
   scroll-snap-type: y proximity;
   width: 200px;
 }
-.3{
+.c-display{
   display: none;
 }
 
